@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        var css = '<link rel="stylesheet" href="./css/index.css?v=?v=' + Math.random() + '">';
+        document.write(css);
+    </script>
+
+    <title>昌通码一屏展码</title>
+</head>
+
+<body>
+    <div class="a">
+        <div>
+            <input type="text" class="inputblock">
+        </div>
+        <div class="block" id="blk" onclick="fn()">
+            <img src="./pic/qr.png" alt="">
+        </div>
+        <div class="showTime"></div>
+        <img src="./pic/real.png" alt="">
+        
+    </div>
+</body>
+
+</html>
+
+
+
+<script>
+    var t = null;
+    t = setTimeout(time, 1000);
+    function time() {
+        clearTimeout(t);
+        dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours();
+        if (h < 10) {
+            h = '0' + h;
+        }
+        var m = dt.getMinutes();
+        if (m < 10) {
+            m = '0' + m;
+        }
+        var s = dt.getSeconds();
+        if (s < 10) {
+            s = '0' + s;
+        }
+        document.querySelector(".showTime").innerHTML = y + '-0' + mt + "-" + day + " " + h + ":" + m + ":" + s;
+        t = setTimeout(time, 1000);
+    }
+
+    flag = 0;
+
+    function fn() {
+        var alpha = 100;
+        var oDiv = document.getElementById('blk');
+        oDiv.style.filter = 'alpha(opacity:'+alpha+')';
+        if (flag == 0) {
+            oDiv.style.opacity = 1.0;
+            flag = 1;
+        }
+        else if (flag == 1) {
+            oDiv.style.opacity = 0.0;
+            flag = 0;
+        }
+    }
+
+
+</script>

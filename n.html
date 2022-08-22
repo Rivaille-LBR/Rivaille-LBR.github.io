@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        var css = '<link rel="stylesheet" href="./css/index.css?v=?v=' + Math.random() + '">';
+        document.write(css);
+    </script>
+
+    <title>昌通码一屏展码</title>
+</head>
+
+<body>
+    <div class="a">
+        <div class="showTime"></div>
+        <img src="./pic/c.png" alt="">
+        
+    </div>
+</body>
+
+</html>
+
+
+
+<script>
+    var t = null;
+    t = setTimeout(time, 1000);//开始运行
+    function time() {
+        clearTimeout(t);//清除定时器
+        dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours();
+        if (h < 10) {
+            h = '0' + h;
+        }
+        var m = dt.getMinutes();
+        if (m < 10) {
+            m = '0' + m;
+        }
+        if (s < 10) {
+            s = '0' + s;
+        }
+        var s = dt.getSeconds();
+        document.querySelector(".showTime").innerHTML = y + '-0' + mt + "-" + day + " " + h + ":" + m + ":" + s;
+        t = setTimeout(time, 1000);//设置定时器，循环运行
+    }
+</script>
